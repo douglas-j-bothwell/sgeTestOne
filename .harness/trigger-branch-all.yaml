@@ -1,0 +1,14 @@
+inputSet:
+  identifier: "triggerbranchall"
+  name: "trigger-branch-all"
+  orgIdentifier: "default"
+  projectIdentifier: "dougproject"
+  pipeline:
+    identifier: "test000"
+    properties:
+      ci:
+        codebase:
+          build:
+            type: "branch"
+            spec:
+              branch: "<+trigger.branch>"
