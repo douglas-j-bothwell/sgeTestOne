@@ -30,7 +30,7 @@ pipeline:
                                     connectorRef: dbothwelldockerhub
                                     repo: dbothwell/sgetestone
                                     tags:
-                                        - sgetestone-main-latest
+                                        - sgetestone-master-latest
                                         - <+trigger.branch>
     properties:
         ci:
