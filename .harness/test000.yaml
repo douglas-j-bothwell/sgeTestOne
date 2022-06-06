@@ -31,6 +31,7 @@ pipeline:
                                     repo: dbothwell/sgetestone
                                     tags:
                                         - sgetestone-main-latest
+                                        - <+trigger.branch>
     properties:
         ci:
             codebase:
