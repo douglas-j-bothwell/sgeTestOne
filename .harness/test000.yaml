@@ -31,3 +31,33 @@ pipeline:
                                     executionTarget: {}
                                 timeout: 10m
               tags: {}
+        - stage:
+              name: build
+              identifier: build
+              type: CI
+              spec:
+                  cloneCodebase: true
+                  infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                          connectorRef: account.CItestK8sConnectorU4hsfzj5Q7
+                          namespace: harness-qa-delegate
+                          automountServiceAccountToken: true
+                          nodeSelector: {}
+                  execution:
+                      steps:
+                          - step:
+                                type: BuildAndPushDockerRegistry
+                                name: push-to-dockerhub
+                                identifier: pushtodockerhub
+                                spec:
+                                    connectorRef: dbothwelldockerhub
+                                    repo: dbothwell/sgetestone
+                                    tags:
+                                        - sgetestone-main-latest
+    properties:
+        ci:
+            codebase:
+                connectorRef: douglasjbothwellgithub
+                repoName: " sgeTestOne"
+                build: <+input>
