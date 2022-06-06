@@ -25,7 +25,7 @@ pipeline:
                                     source:
                                         type: Inline
                                         spec:
-                                            script: echo. "I'm now in main"
+                                            script: echo. "I'm now in my-feature-branch"
                                     environmentVariables: []
                                     outputVariables: []
                                     executionTarget: {}
