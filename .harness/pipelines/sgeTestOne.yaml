@@ -1,0 +1,33 @@
+pipeline:
+    name: sgeTestOne
+    identifier: sgeTestOne
+    projectIdentifier: dougproject
+    orgIdentifier: default
+    storeType: REMOTE
+    remoteType: create
+    tags: {}
+    stages:
+        - stage:
+              name: echo
+              identifier: echo
+              description: ""
+              type: Custom
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                type: ShellScript
+                                name: echo branch
+                                identifier: echo_branch
+                                spec:
+                                    shell: Bash
+                                    onDelegate: true
+                                    source:
+                                        type: Inline
+                                        spec:
+                                            script: echo "I'm now in main"
+                                    environmentVariables: []
+                                    outputVariables: []
+                                    executionTarget: {}
+                                timeout: 10m
+              tags: {}
