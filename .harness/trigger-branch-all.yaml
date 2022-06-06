@@ -1,6 +1,7 @@
 inputSet:
   identifier: "triggerbranchall"
-  name: "trigger-branch-all"
+  name: "trigger-branch-main"
+  tags: {}
   orgIdentifier: "default"
   projectIdentifier: "dougproject"
   pipeline:
