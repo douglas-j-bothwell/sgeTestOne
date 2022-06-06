@@ -32,6 +32,15 @@ pipeline:
                                     tags:
                                         - sgetestone-my-feature-branch-latest
                                         - <+trigger.branch>
+                          - step:
+                                type: Run
+                                name: echo branch
+                                identifier: echo_branch
+                                spec:
+                                    connectorRef: dbothwelldockerhub
+                                    image: alpine/latest
+                                    shell: Sh
+                                    command: echo "I'm now in branch my-feature-branch"
     properties:
         ci:
             codebase:
