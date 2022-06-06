@@ -1,0 +1,33 @@
+pipeline:
+    name: test000
+    identifier: test000
+    projectIdentifier: dougproject
+    orgIdentifier: default
+    storeType: REMOTE
+    remoteType: create
+    tags: {}
+    stages:
+        - stage:
+              name: test000
+              identifier: test000
+              description: ""
+              type: Custom
+              spec:
+                  execution:
+                      steps:
+                          - step:
+                                type: ShellScript
+                                name: echo branch
+                                identifier: echo_branch
+                                spec:
+                                    shell: Bash
+                                    onDelegate: true
+                                    source:
+                                        type: Inline
+                                        spec:
+                                            script: echo. "I'm now in my-feature-branch"
+                                    environmentVariables: []
+                                    outputVariables: []
+                                    executionTarget: {}
+                                timeout: 10m
+              tags: {}
