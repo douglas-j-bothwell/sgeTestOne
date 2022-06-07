@@ -45,4 +45,4 @@ pipeline:
                                     connectorRef: dbothwelldockerhub
                                     image: alpine/latest
                                     shell: Sh
-                                    command: echo "I'm in main"
+                                    command: echo "I'm in my-feature-branch"
