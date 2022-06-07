@@ -37,3 +37,12 @@ pipeline:
                                     repo: dbothwell/sgetestone
                                     tags:
                                         - main-latest
+                          - step:
+                                type: Run
+                                name: echo branch
+                                identifier: echo_branch
+                                spec:
+                                    connectorRef: dbothwelldockerhub
+                                    image: alpine/latest
+                                    shell: Sh
+                                    command: echo "I'm in main"
