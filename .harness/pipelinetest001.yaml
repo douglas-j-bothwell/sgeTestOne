@@ -1,0 +1,39 @@
+pipeline:
+    name: pipelinetest001
+    identifier: pipelinetest001
+    projectIdentifier: dougproject
+    orgIdentifier: default
+    storeType: REMOTE
+    remoteType: create
+    tags: {}
+    properties:
+        ci:
+            codebase:
+                connectorRef: douglasjbothwellgithub
+                repoName: sgeTestOne
+                build: <+input>
+    stages:
+        - stage:
+              name: build
+              identifier: build
+              type: CI
+              spec:
+                  cloneCodebase: true
+                  infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                          connectorRef: account.CItestK8sConnectorU4hsfzj5Q7
+                          namespace: harness-qa-delegate
+                          automountServiceAccountToken: true
+                          nodeSelector: {}
+                  execution:
+                      steps:
+                          - step:
+                                type: BuildAndPushDockerRegistry
+                                name: pushToDocker
+                                identifier: pushToDocker
+                                spec:
+                                    connectorRef: dbothwelldockerhub
+                                    repo: dbothwell/sgetestone
+                                    tags:
+                                        - main-latest
